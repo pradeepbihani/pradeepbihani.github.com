@@ -53,6 +53,7 @@
 			<ul>				
 			<li>	<a href="#" style="font-size:18px">General</a></li>
 			<li>	<a href="#" style="font-size:18px">Shared Memory</a></li>
+			<li>	<a href="#" style="font-size:18px">Message</a></li>
 			</ul>
 			<p>UnixWare provides several mechanisms that allow processes to exchange data and synchronize execution. The simpler of these 
 			  mechanisms are pipes, named pipes, and signals. These are limited, however, in what they can do. For instance,
@@ -140,55 +141,58 @@
 			</pre>
 			<pre>
 			  int shmget (key, size, shmflg)
-return shmid
-parameter:
-1.key_t key:
-key=0 , shmflg=IPC_PRIVATE : new shmid is always returned with an associated shared memory segment data structure 
-key =any value ,shmflg=IPC_CREAT :
-if the key is not already in use, a new identifier is returned with an associated shared memory segment data structure
-else it returns an existing shared memory identifier that already has an associated shared memory segment data structure
+			  return shmid
+			  parameter:
+			  1.key_t key:
+			  key=0 , shmflg=IPC_PRIVATE : new shmid is always returned with an associated shared memory segment data structure 
+			  key =any value ,shmflg=IPC_CREAT :
+			  if the key is not already in use, a new identifier is returned with an associated shared memory segment data structure
+			  else it returns an existing shared memory identifier that already has an associated shared memory segment data structure
 
-2.int size
-input size of datastructure to be shared
-The system call will fail if the value for the size argument is less than SHMMIN or greater than SHMMAX
+			  2.int size
+			  input size of datastructure to be shared
+			  The system call will fail if the value for the size argument is less than SHMMIN or greater than SHMMAX
 
-3.int shmflg
+			  3.int shmflg
 
-operations permissions(op)
+			  operations permissions(op)
 
-control fields (cf)
-IPC_PRIVATE.
-will create shared with key 0 .
+			  control fields (cf)
+			  IPC_PRIVATE.
+			  will create shared with key 0 .
 
-IPC_CREAT
-Create the segment if it does not already exist in the kernel.
+			  IPC_CREAT
+			  Create the segment if it does not already exist in the kernel.
 
-IPC_EXCL
-When used with IPC_CREAT, fail if segment already exists.
-If IPC_CREAT is used alone, shmget either returns the segment identifier for a newly created segment, or returns the identifier for a segment which exists with the same key value. If IPC_CREAT is used with IPC_EXCL, a new segment is created unless the segment exists, in which case, the call fails with -1. IPC_EXCL guarantees that no existing segment is opened for access.
+			  IPC_EXCL
+			  When used with IPC_CREAT, fail if segment already exists.
+			  If IPC_CREAT is used alone, shmget either returns the segment identifier for a newly created segment, or returns the identifier 
+			  for a segment which exists with the same key value. If IPC_CREAT is used with IPC_EXCL, a new segment is created unless the
+			  segment exists, in which case, the call fails with -1. IPC_EXCL guarantees that no existing segment is opened for access.
 
-shmflg=op|cf;
+			  shmflg=op|cf;
 			  </pre>
 			<pre>
 			  int shmctl (shmid, cmd, buf)
-   int shmid, cmd;
-   struct shmid_ds *buf;
+			  int shmid, cmd;
+			  struct shmid_ds *buf;
 
 
-IPC_STAT
-return the status information contained in the associated data structure for the specified shmid and place it in the data structure pointed to by the buf pointer in the user memory area
+			  IPC_STAT
+			  return the status information contained in the associated data structure for the specified shmid and place 
+			  it in the data structure pointed to by the buf pointer in the user memory area
 
-IPC_SET
-for the specified shmid, set the effective user and group identification, and operation permissions
+			  IPC_SET
+			  for the specified shmid, set the effective user and group identification, and operation permissions
 
-IPC_RMID
-remove the specified shmid with its associated shared memory segment data structure
+			  IPC_RMID
+			  remove the specified shmid with its associated shared memory segment data structure
 
-SHM_LOCK
-lock the specified shared memory segment in memory; must have P_SYSOPS privilege to perform this operation
+			  SHM_LOCK
+			  lock the specified shared memory segment in memory; must have P_SYSOPS privilege to perform this operation
 
-SHM_UNLOCK
-unlock the shared memory segment from memory; must have P_SYSOPS privilege to perform this operation
+			  SHM_UNLOCK
+			  unlock the shared memory segment from memory; must have P_SYSOPS privilege to perform this operation
 			  </pre>
 			<pre>
 			  void *shmat (shmid, shmaddr, shmflg)
@@ -198,6 +202,104 @@ unlock the shared memory segment from memory; must have P_SYSOPS privilege to pe
 			  
 			  int shmdt (shmaddr)
 			  void *shmaddr;
+			  </pre>
+			<h3>Message</h3>
+			<pre>
+			  Before a message can be sent or received, a uniquely identified message queue and data structure must be created. 
+			  The unique identifier is called the message queue identifier (msqid); 
+			  it is used to identify or refer to the associated message queue and data structure located in the sys/msg.h header file.
+			  struct msqid_ds
+			  {
+			  struct ipc_perm  msg_perm;          /* operation permission struct */
+			  struct msg       *msg_first;        /* ptr to first message on q */
+			  struct msg       *msg_last;         /* ptr to last message on q */
+			  ulong            msg_cbytes;        /* current # bytes on q */
+			  ulong            msg_qnum;          /* # of messages on q */
+			  ulong            msg_qbytes;        /* max # of bytes on q */
+			  pid_t            msg_lspid;         /* pid of last msgsnd */
+			  pid_t            msg_lrpid;         /* pid of last msgrcv */
+			  time_t           msg_stime;         /* last msgsnd time */
+			  time_t           msg_rtime;         /* last msgrcv time */
+			  time_t           msg_ctime;         /* last change time */
+			  };
+			</pre>
+			<pre>
+			  int  msgget (key_t key, int msgflg);
+
+			  
+			  int msgctl (msqid, cmd, buf)
+			  int msqid, cmd;
+			  struct msqid_ds *buf;
+			</pre>
+			<pre>
+			  msgp points to a user defined buffer that must contain first a field of type long integer that will specify the type of the 
+			  message, and then a data portion that will hold the text of the message
+			  struct
+			  {long mtype;    /* message type */
+			  char mtext[];  /* message text */
+			  }msgp;
+			  mtype is a positive integer that can be used by the receiving process for message selection
+
+			  </pre>
+			<pre>
+			  int msgsnd(int msqid, const void *msgp,size_t msgsz, int msgflg);
+   
+			  RETURN :
+			  0:on Successful
+			  -1:on unsuccessful
+
+			  Parameters:
+			  msgp:
+			  pointer to a buffer which to be send as message
+
+
+			  msgsz : sie of the message
+
+			  msgflg:
+
+			  IPC_NOWAIT
+			  1.set(msgflg=IPC_NOWAIT)
+
+			  2.notset
+			  the operation would block if the total number of bytes allowed on the specified message queue are in use
+
+			  </pre>
+			<pre>
+			  int msgrcv(int msqid, void *msgp,size_t msgsz, long msgtyp, int msgflg);
+			  RETURN:
+			  -1:On unsuccessul
+			  number of bytes copied from queue
+
+			  PARAMETERS:
+			  msgp :
+			  pointer to a structure in the user memory area that will receive the message.
+
+			  msgsz
+			  length of the message to be received. 
+			  If its value is less than the message in the array, an error can be returned if desired (see the msgflg argument below).
+
+			  msgtyp :
+			  argument is used to pick the first message on the message queue of the particular type specified.
+			  If it is equal to zero, the first message on the queue is received; 
+			  if it is greater than zero, the first message of the same type is received; 
+			  if it is less than zero, the lowest type that is less than or equal to its absolute value is received.
+
+
+			  msgflg:
+			  argument allows the ``blocking message operation'' to be performed 
+
+			  IPC_NOWAIT
+			  1.set(msgflg=IPC_NOWAIT)
+			  if the IPC_NOWAIT flag is not set ((msgflg and IPC_NOWAIT) == 0); :
+			  the operation would block if there is not a message on the message queue of the desired type (msgtyp) to be received. 
+			  2.noset
+			  If the IPC_NOWAIT flag is set, the system call will fail immediately when there is not message of the desired type on the queue. 
+
+			  MSG_NOERROR 
+			  1.set(msgflg=IPC_NOERROR)
+			  MSG_NOERROR flag is set, the message is truncated to the length specified by the msgsz argument of msgrcv.
+			  2.noset
+			  the system call fail if the message is longer than the size to be received
 			  </pre>
                     </div>
                 </div>
