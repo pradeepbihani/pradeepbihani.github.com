@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Inter Process Communication</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../../css/simple-sidebar.css" rel="stylesheet">
+
+<!-- latex -->
+<script type="text/javascript"
+  src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+ 
+
+
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1>InterProcess Communication</h1>
+			
+			
+                        <!--<p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
+                        <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
+                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>-->
+			<ul>				
+			<li>	<a href="#" style="font-size:18px">General</a></li>
+			<li>	<a href="#" style="font-size:18px">Shared Memory</a></li>
+			<li>	<a href="#" style="font-size:18px">Message</a></li>
+			</ul>
+			<p>UnixWare provides several mechanisms that allow processes to exchange data and synchronize execution. The simpler of these 
+			  mechanisms are pipes, named pipes, and signals. These are limited, however, in what they can do. For instance,
+			  <ul>
+			  <li>Pipes do not allow unrelated processes to communicate.</li><br>
+			  <li>Named pipes allow unrelated processes to communicate, but they cannot provide private channels for pairs of communicating processes;
+			  that is, any process with appropriate permission may read from or write to a named pipe.</li><br>
+			  <li>Sending signals, via the kill system call, allows arbitrary processes to communicate, but the message consists 
+			  only of the signal number.</li><br>
+			  </ul>
+			  UnixWare also provides an InterProcess Communication (IPC) package that supports three, 
+			  more versatile types of interprocess communication. For example,
+			  <ul>
+			  <li>Messages allow processes to send formatted data streams to arbitrary processes.</li><br>
+			  <li>Semaphores allow processes to synchronize execution.</li><br>
+			  <li>Shared memory allows processes to share parts of their virtual address space.</li><br>
+			</ul></p>
+			<pre>
+			  located in the sys/ipc.h 
+			  struct ipc_perm
+			  {
+			  uid_t           uid;	/* owner's user id */
+			  gid_t           gid;	/* owner's group id */
+			  uid_t           cuid;	/* creator's user id */
+			  gid_t           cgid;	/* creator's group id */
+			  mode_t          mode;	/* access modes */
+			  ulong           seq;	/* slot usage sequence number */
+			  key_t           key;	/* key */
+			  long            pad[4];	/* reserve area */
+			  };
+			  </pre>
+			opcode
+			<table border="">
+			  <tbody><tr valign="top"><th align="LEFT">				Operation permissions
+			      </th><th align="LEFT">				Octal value
+			    </th></tr>
+
+			    <tr valign="top"><td>				Read by user
+			      </td><td>
+				00400
+			    </td></tr>
+			    <tr valign="top"><td>
+				Write by user
+			      </td><td>
+				00200
+			    </td></tr>
+			    <tr valign="top"><td>
+				Read by group
+			      </td><td>
+				00040
+			    </td></tr>
+			    <tr valign="top"><td>
+				Write by group
+			      </td><td>
+				00020
+			    </td></tr>
+			    <tr valign="top"><td>
+				Read by others
+			      </td><td>
+				00004
+			    </td></tr>
+			    <tr valign="top"><td>
+				Write by others
+			      </td><td>
+				00002
+			    </td></tr>
+
+			</tbody></table>
+			<h3>Shared Memory</h3>
+			<pre>
+			  shmid_ds is located in the sys/shm.h header file.
+			  struct shmid_ds {
+			  struct ipc_perm    shm_perm;      /* operation permission struct */
+			  int                shm_segsz;     /* segment size */
+			  struct region      *shm_reg;      /* ptr to region structure */
+			  char               pad[4];        /* for swap compatibility */
+			  pid_t              shm_lpid;      /* pid of last shmop */
+			  pid_t              shm_cpid;      /* pid of creator */
+			  ushort             shm_nattch;    /* used only for shminfo */
+			  ushort             shm_cnattch;   /* used only for shminfo */
+			  time_t             shm_atime;     /* last shmat time */
+			  time_t             shm_dtime;     /* last shmdt time */
+			  time_t             shm_ctime;     /* last change time */
+			  };
+			</pre>
+			<pre>
+			  int shmget (key, size, shmflg)
+			  return shmid
+			  parameter:
+			  1.key_t key:
+			  key=0 , shmflg=IPC_PRIVATE : new shmid is always returned with an associated shared memory segment data structure 
+			  key =any value ,shmflg=IPC_CREAT :
+			  if the key is not already in use, a new identifier is returned with an associated shared memory segment data structure
+			  else it returns an existing shared memory identifier that already has an associated shared memory segment data structure
+
+			  2.int size
+			  input size of datastructure to be shared
+			  The system call will fail if the value for the size argument is less than SHMMIN or greater than SHMMAX
+
+			  3.int shmflg
+
+			  operations permissions(op)
+
+			  control fields (cf)
+			  IPC_PRIVATE.
+			  will create shared with key 0 .
+
+			  IPC_CREAT
+			  Create the segment if it does not already exist in the kernel.
+
+			  IPC_EXCL
+			  When used with IPC_CREAT, fail if segment already exists.
+			  If IPC_CREAT is used alone, shmget either returns the segment identifier for a newly created segment, or returns the identifier 
+			  for a segment which exists with the same key value. If IPC_CREAT is used with IPC_EXCL, a new segment is created unless the
+			  segment exists, in which case, the call fails with -1. IPC_EXCL guarantees that no existing segment is opened for access.
+
+			  shmflg=op|cf;
+			  </pre>
+			<pre>
+			  int shmctl (shmid, cmd, buf)
+			  int shmid, cmd;
+			  struct shmid_ds *buf;
+
+
+			  IPC_STAT
+			  return the status information contained in the associated data structure for the specified shmid and place 
+			  it in the data structure pointed to by the buf pointer in the user memory area
+
+			  IPC_SET
+			  for the specified shmid, set the effective user and group identification, and operation permissions
+
+			  IPC_RMID
+			  remove the specified shmid with its associated shared memory segment data structure
+
+			  SHM_LOCK
+			  lock the specified shared memory segment in memory; must have P_SYSOPS privilege to perform this operation
+
+			  SHM_UNLOCK
+			  unlock the shared memory segment from memory; must have P_SYSOPS privilege to perform this operation
+			  </pre>
+			<pre>
+			  void *shmat (shmid, shmaddr, shmflg)
+			  int shmid;
+			  void *shmaddr;
+			  int shmflg;
+			  
+			  int shmdt (shmaddr)
+			  void *shmaddr;
+			  </pre>
+			<h3>Message</h3>
+			<pre>
+			  Before a message can be sent or received, a uniquely identified message queue and data structure must be created. 
+			  The unique identifier is called the message queue identifier (msqid); 
+			  it is used to identify or refer to the associated message queue and data structure located in the sys/msg.h header file.
+			  struct msqid_ds
+			  {
+			  struct ipc_perm  msg_perm;          /* operation permission struct */
+			  struct msg       *msg_first;        /* ptr to first message on q */
+			  struct msg       *msg_last;         /* ptr to last message on q */
+			  ulong            msg_cbytes;        /* current # bytes on q */
+			  ulong            msg_qnum;          /* # of messages on q */
+			  ulong            msg_qbytes;        /* max # of bytes on q */
+			  pid_t            msg_lspid;         /* pid of last msgsnd */
+			  pid_t            msg_lrpid;         /* pid of last msgrcv */
+			  time_t           msg_stime;         /* last msgsnd time */
+			  time_t           msg_rtime;         /* last msgrcv time */
+			  time_t           msg_ctime;         /* last change time */
+			  };
+			</pre>
+			<pre>
+			  int  msgget (key_t key, int msgflg);
+
+			  
+			  int msgctl (msqid, cmd, buf)
+			  int msqid, cmd;
+			  struct msqid_ds *buf;
+			</pre>
+			<pre>
+			  msgp points to a user defined buffer that must contain first a field of type long integer that will specify the type of the 
+			  message, and then a data portion that will hold the text of the message
+			  struct
+			  {long mtype;    /* message type */
+			  char mtext[];  /* message text */
+			  }msgp;
+			  mtype is a positive integer that can be used by the receiving process for message selection
+
+			  </pre>
+			<pre>
+			  int msgsnd(int msqid, const void *msgp,size_t msgsz, int msgflg);
+   
+			  RETURN :
+			  0:on Successful
+			  -1:on unsuccessful
+
+			  Parameters:
+			  msgp:
+			  pointer to a buffer which to be send as message
+
+
+			  msgsz : sie of the message
+
+			  msgflg:
+
+			  IPC_NOWAIT
+			  1.set(msgflg=IPC_NOWAIT)
+
+			  2.notset
+			  the operation would block if the total number of bytes allowed on the specified message queue are in use
+
+			  </pre>
+			<pre>
+			  int msgrcv(int msqid, void *msgp,size_t msgsz, long msgtyp, int msgflg);
+			  RETURN:
+			  -1:On unsuccessul
+			  number of bytes copied from queue
+
+			  PARAMETERS:
+			  msgp :
+			  pointer to a structure in the user memory area that will receive the message.
+
+			  msgsz
+			  length of the message to be received. 
+			  If its value is less than the message in the array, an error can be returned if desired (see the msgflg argument below).
+
+			  msgtyp :
+			  argument is used to pick the first message on the message queue of the particular type specified.
+			  If it is equal to zero, the first message on the queue is received; 
+			  if it is greater than zero, the first message of the same type is received; 
+			  if it is less than zero, the lowest type that is less than or equal to its absolute value is received.
+
+
+			  msgflg:
+			  argument allows the ``blocking message operation'' to be performed 
+
+			  IPC_NOWAIT
+			  1.set(msgflg=IPC_NOWAIT)
+			  if the IPC_NOWAIT flag is not set ((msgflg and IPC_NOWAIT) == 0); :
+			  the operation would block if there is not a message on the message queue of the desired type (msgtyp) to be received. 
+			  2.noset
+			  If the IPC_NOWAIT flag is set, the system call will fail immediately when there is not message of the desired type on the queue. 
+
+			  MSG_NOERROR 
+			  1.set(msgflg=IPC_NOERROR)
+			  MSG_NOERROR flag is set, the message is truncated to the length specified by the msgsz argument of msgrcv.
+			  2.noset
+			  the system call fail if the message is longer than the size to be received
+			  </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    <!-- /#wrapper -->
+
+    <!-- jQuery Version 1.11.0 -->
+    <script src="js/jquery-1.11.0.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+
+</body>
+
+</html>

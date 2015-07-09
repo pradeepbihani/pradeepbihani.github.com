@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Inter Process Communication</title>
+    <title>Nodejs</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -44,33 +44,28 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1>InterProcess Communication</h1>
+                        <h1>Node Js</h1>
 			
 			
                         <!--<p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
                         <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
                         <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>-->
 			<ul>				
-			<li>	<a href="#" style="font-size:18px">General</a></li>
-			<li>	<a href="#" style="font-size:18px">Shared Memory</a></li>
-			<li>	<a href="#" style="font-size:18px">Message</a></li>
+			<li>	<a href="#" style="font-size:18px">Installation</a></li>
+			<li>	<a href="#" style="font-size:18px">REPL Command</a></li>
+			<li>	<a href="#" style="font-size:18px">NPM</a></li>
+            <li>	<a href="#" style="font-size:18px">Starting Server</a></li>
+            <li>	<a href="#" style="font-size:18px">Getting Details from Clients</a></li>
+            <li><a href="#" style="font-size:18px">Sending Details through header/post/get/body to Clients</a></li>
+            <li><a href="#" style="font-size:18px">Connecting to Mongodb</a></li>
 			</ul>
-			<p>UnixWare provides several mechanisms that allow processes to exchange data and synchronize execution. The simpler of these 
-			  mechanisms are pipes, named pipes, and signals. These are limited, however, in what they can do. For instance,
-			  <ul>
-			  <li>Pipes do not allow unrelated processes to communicate.</li><br>
-			  <li>Named pipes allow unrelated processes to communicate, but they cannot provide private channels for pairs of communicating processes;
-			  that is, any process with appropriate permission may read from or write to a named pipe.</li><br>
-			  <li>Sending signals, via the kill system call, allows arbitrary processes to communicate, but the message consists 
-			  only of the signal number.</li><br>
-			  </ul>
-			  UnixWare also provides an InterProcess Communication (IPC) package that supports three, 
-			  more versatile types of interprocess communication. For example,
-			  <ul>
-			  <li>Messages allow processes to send formatted data streams to arbitrary processes.</li><br>
-			  <li>Semaphores allow processes to synchronize execution.</li><br>
-			  <li>Shared memory allows processes to share parts of their virtual address space.</li><br>
-			</ul></p>
+			<p>Before starting Node js it is better to have knowledge regrading this topic it will be very helpful to go fast
+            <ul>
+<li><p><a href="http://blog.shinetech.com/2011/08/26/asynchronous-code-design-with-node-js/">You'll want to understand the asynchronous coding style that Node encourages</a>.</p></li>
+<li><p><a href="http://blog.mixu.net/2011/02/01/understanding-the-node-js-event-loop/">Async != concurrent.  Understand Node's event loop</a>!</p></li>
+<li><p><a href="http://docs.nodejitsu.com/articles/getting-started/what-is-require">Node uses CommonJS-style require() for code loading; it's probably a bit different from what you're used to</a>.</p></li>
+<li><p><a href="http://nodejs.org/api/index.html">Familiarize yourself with Node's standard library</a>.</p></li>
+</ul></p>
 			<pre>
 			  located in the sys/ipc.h 
 			  struct ipc_perm
