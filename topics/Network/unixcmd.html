@@ -1,0 +1,173 @@
+<html lang="en"><head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Inter Process Communication</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../../css/simple-sidebar.css" rel="stylesheet">
+
+<!-- latex -->
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+ 
+
+
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1>Terminal Command</h1>
+			
+			
+                        <!--<p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
+                        <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
+                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>-->
+			<ul>				
+			<li>	<a href="#" style="font-size:18px">Curl &amp; Wget</a></li>
+			<li>	<a href="#" style="font-size:18px">ping</a></li>
+			<li>	<a href="#" style="font-size:18px">tracepath</a></li>
+  <li>	<a href="#" style="font-size:18px">mtr</a></li>
+			<li>	<a href="#" style="font-size:18px">host</a></li>
+			<li>	<a href="#" style="font-size:18px">whois</a></li>
+  <li>	<a href="#" style="font-size:18px">ifplugstatus</a></li>
+			<li>	<a href="#" style="font-size:18px">ifconfig</a></li>
+			<li>	<a href="#" style="font-size:18px">ifdown</a></li>
+  <li>	<a href="#" style="font-size:18px">dhclient</a></li>
+			<li>	<a href="#" style="font-size:18px">netstat</a></li>
+			
+			</ul>
+
+<div>
+<!-- google_ad_section_start -->
+<p><img title="network commands header" src="http://cdn5.howtogeek.com/wp-content/uploads/2012/03/650x250xnetwork-commands-header.png.pagespeed.ic.pNgFeoRNdG.png" alt="" width="650" height="250" pagespeed_url_hash="4161813824" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></p>
+<p>Whether you want to download files, diagnose network problems, manage your network interfaces, or view network statistics, there’s a terminal command for that. This collection contains the tried and true tools and a few newer commands.</p>
+<p>You can do most of this from a graphical desktop, although even Linux users that rarely use the terminal often launch one to use ping and other network diagnostic tools.</p>
+
+<h3>curl &amp; wget</h3>
+<p>Use the <strong>curl</strong> or <strong>wget</strong> commands to download a file from the Internet without leaving the terminal. If you’re using curl, type <strong>curl -O</strong> followed by the path to the file. wget users can use&nbsp;<strong>wget</strong> without any options.. The file will appear in the current directory.</p>
+<blockquote><p>curl -O website.com/file<br>
+wget website.com/file</p></blockquote>
+<p><img class="alignnone size-full wp-image-108513" title="curl" src="http://cdn5.howtogeek.com/wp-content/uploads/2012/03/curl.png" alt="" width="607" height="320" pagespeed_url_hash="995063505" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></p>
+<h3>ping</h3>
+<p><strong>ping</strong> sends ECHO_REQUEST packets to the address you specify. It’s a great way to see whether your computer can communicate with the Internet or a specific IP address. Bear in mind that many systems are configured not to respond to pings, however.</p>
+<p>Unlike the ping command on Windows, the Linux ping command will keep sending packets until you terminate it. You can specify a finite amount of packets with the <strong>-c</strong> switch.</p>
+<blockquote><p>ping -c 4 google.com</p></blockquote>
+<p><img class="alignnone size-full wp-image-108514" title="ping" src="http://cdn5.howtogeek.com/wp-content/uploads/2012/03/ping.png" alt="" width="607" height="320" pagespeed_url_hash="2370120659" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></p>
+<h3>tracepath &amp; traceroute</h3>
+<p>The <strong>tracepath</strong> command is similar to <strong>traceroute</strong>, but it doesn’t require root privileges. It’s also installed by default on Ubuntu, while traceroute isn’t. tracepath traces the network path to a destination you specify and reports each “hop” along the path. If you’re having network problems or slowness, tracepath can show you where the network is failing or where the slowness is occurring.</p>
+<blockquote><p>tracepath example.com</p></blockquote>
+<p><img class="alignnone size-full wp-image-108515" title="tracepath" src="http://cdn5.howtogeek.com/wp-content/uploads/2012/03/tracepath.png" alt="" width="607" height="320" pagespeed_url_hash="1717832331" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></p>
+<h3>mtr</h3>
+<p>The <strong>mtr</strong> command combines ping and tracepath into a single command. mtr will continue to send packets, showing you the ping time to each “hop.” This will also show you any problems — in this case, we can see that hop 6 is losing over 20% of the packets.</p>
+<blockquote><p>mtr howtogeek.com</p></blockquote>
+<p><img class="alignnone size-full wp-image-108516" title="mtr" src="http://cdn5.howtogeek.com/wp-content/uploads/2012/03/mtr.png" alt="" width="607" height="320" pagespeed_url_hash="3212146320" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></p>
+<p>Press q or Ctrl-C to quit when you’re done.</p>
+<h3>host</h3>
+<p>The <strong>host</strong> command performs DNS lookups. Give it a domain name and you’ll see the associated IP address. Give it an IP address and you’ll see the associated domain name.</p>
+<blockquote><p>host howtogeek.com<br>
+host 208.43.115.82</p></blockquote>
+<p><img class="alignnone size-full wp-image-108517" title="host" src="http://cdn5.howtogeek.com/wp-content/uploads/2012/03/host.png" alt="" width="607" height="320" pagespeed_url_hash="3691941357" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></p>
+<h3>whois</h3>
+<p>The <strong>whois</strong> command will show you a website’s whois records, so you can view more information about who registered and owns a specific website.</p>
+<blockquote><p>whois example.com</p></blockquote>
+<p><img class="alignnone size-full wp-image-108518" title="whois" src="http://cdn5.howtogeek.com/wp-content/uploads/2012/03/whois.png" alt="" width="607" height="320" pagespeed_url_hash="3767431937" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></p>
+<h3>ifplugstatus</h3>
+<p>The <strong>ifplugstatus</strong> command will tell you whether a cable is plugged into a network interface or not. It isn’t installed by default on Ubuntu. Use the following command to install it:</p>
+<blockquote><p>sudo apt-get install ifplugd</p></blockquote>
+<p>Run the command to see the status of all interfaces or specify a specific interface to view its status.</p>
+<blockquote><p>ifplugstatus<br>
+ifplugstatus eth0</p></blockquote>
+<p><img class="alignnone size-full wp-image-108519" title="ifplugstatus" src="http://cdn5.howtogeek.com/wp-content/uploads/2012/03/ifplugstatus.png" alt="" width="607" height="320" pagespeed_url_hash="3764534122" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></p>
+<p>“Link beat detected” means the cable is plugged in. You’ll see “unplugged” if it isn’t.</p>
+<h3>ifconfig</h3>
+<p>The <strong>ifconfig</strong> command has a variety of options to configure, tune, and debug your system’s network interfaces. It’s also a quick way to view IP addresses and other network interface information. Type <strong>ifconfig</strong> to view the status of all currently active network interfaces, including their names. You can also specify an interface’s name to view only information about that interface.</p>
+<blockquote><p>ifconfig<br>
+ifconfig eth0</p></blockquote>
+<p><img class="alignnone size-full wp-image-108520" title="ifconfig" src="http://cdn5.howtogeek.com/wp-content/uploads/2012/03/ifconfig.png" alt="" width="607" height="320" pagespeed_url_hash="264320948" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></p>
+<h3>ifdown &amp; ifup</h3>
+<p>The <strong>ifdown</strong> and <strong>ifup</strong> commands are the same thing as running <strong>ifconfig up</strong> or <strong>ifconfig down</strong>. Given an interface’s name, they take the interface down or bring it up. This requires root permissions, so you have to use sudo on Ubuntu.</p>
+<blockquote><p>sudo ifdown eth0<br>
+sudo ifup eth0</p></blockquote>
+<p><img class="alignnone size-full wp-image-108521" title="ifdown ifup" src="http://cdn5.howtogeek.com/wp-content/uploads/2012/03/ifdown-ifup.png" alt="" width="607" height="320" pagespeed_url_hash="628431559" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></p>
+<p>Try this on a Linux desktop system and you’ll probably get an error message. Linux desktops usually use NetworkManager, which manages network interfaces for you. These commands will still work on servers without NetworkManager, though.</p>
+<p>If you really need to configure NetworkManager from the command line, use the <strong>nmcli</strong> command.</p>
+<h3>dhclient</h3>
+<p>The <strong>dhclient</strong> command can release your computer’s IP address and get a new one from your DHCP server. This requires root permissions, so use sudo on Ubuntu. Run dhclient&nbsp;with no options to get a new IP address or use the <strong>-r</strong> switch to release your current IP address.</p>
+<blockquote><p>sudo dhclient -r<br>
+sudo dhclient</p></blockquote>
+<p><img class="alignnone size-full wp-image-108522" title="dhclient" src="http://cdn5.howtogeek.com/wp-content/uploads/2012/03/dhclient.png" alt="" width="607" height="320" pagespeed_url_hash="1013188104" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></p>
+<h3>netstat</h3>
+<p>The <strong>netstat</strong> command can show a lot of different interface statistics, including open sockets and routing tables. Run the netstat command with no options and you’ll see a list of open sockets.</p>
+<p><img class="alignnone size-full wp-image-108525" title="netstat" src="http://cdn5.howtogeek.com/wp-content/uploads/2012/03/netstat.png" alt="" width="607" height="320" pagespeed_url_hash="1226943946" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></p>
+<p>There’s a lot more you can do with this command. For example, use the <strong>netstat -p</strong> command to view the programs associated with open sockets.</p>
+<p><img class="alignnone size-full wp-image-108524" title="netstat -p" src="http://cdn5.howtogeek.com/wp-content/uploads/2012/03/netstat-p.png" alt="" width="607" height="320" pagespeed_url_hash="1586879465" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></p>
+<p>View detailed statistics for all ports with <strong>netstat -s</strong>.</p>
+<p><img class="alignnone size-full wp-image-108523" title="netstat -s" src="http://cdn5.howtogeek.com/wp-content/uploads/2012/03/netstat-s.png" alt="" width="607" height="320" pagespeed_url_hash="2470379228" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></p>
+<hr>
+<p>We’ve also covered commands for <a href="http://www.howtogeek.com/107217/how-to-manage-processes-from-the-linux-terminal-10-commands-you-need-to-know/">managing process</a> and <a href="http://www.howtogeek.com/107808/how-to-manage-files-from-the-linux-terminal-11-commands-you-need-to-know/">working with files</a> in&nbsp;the&nbsp;past.</p>
+<!-- google_ad_section_end -->
+</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    <!-- /#wrapper -->
+
+    <!-- jQuery Version 1.11.0 -->
+    <script src="js/jquery-1.11.0.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+
+
+
+
+
+</body></html>
