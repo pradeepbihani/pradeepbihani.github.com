@@ -111,6 +111,9 @@
 #page-content-wrapper {
 	padding: 20px;
 }
+.notes{
+    height:1012;
+}
 #wrapper.toggled #page-content-wrapper {
 	position: relative;
 	margin-right: 0;
