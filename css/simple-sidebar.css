@@ -114,6 +114,33 @@
 .notes{
     height:1012;
 }
+.highlightQuestion{
+    background: #eeffcc;
+    border: 1px solid #e1e4e5;
+}
+
+.highlightAnswer{
+    background: aliceblue;
+
+}
+.question{
+    padding: 5px;
+    margin-left: 10;
+    margin-right: 10;
+    }
+
+.qnaset{
+    margin-bottom: 15;
+    }
+
+.answer{
+    margin-left: 10;
+    margin-right: 10;
+    }
+
+
+
+
 #wrapper.toggled #page-content-wrapper {
 	position: relative;
 	margin-right: 0;
