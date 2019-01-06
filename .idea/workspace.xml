@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="756e497c-3879-4e9e-9289-07d28e398eea" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/topics/Math/NBHM.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topics/Math/PaperSolution/Paper2016_Solution.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/topics/Math/RealAnalysis.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarIssues.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarIssues.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/simple-sidebar.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/simple-sidebar.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/link.html" beforeDir="false" afterPath="$PROJECT_DIR$/link.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -31,7 +29,7 @@
       <file leaf-file-name="Paper2016_Solution.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/topics/Math/PaperSolution/Paper2016_Solution.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
+            <state relative-caret-position="264">
               <caret line="68" column="22" selection-start-line="68" selection-start-column="22" selection-end-line="68" selection-end-column="22" />
             </state>
           </provider>
@@ -70,24 +68,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ComplexAnalysis.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/topics/Math/ComplexAnalysis.html">
+      <file leaf-file-name="RealAnalysis.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/topics/Math/RealAnalysis.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="47" column="42" selection-start-line="47" selection-start-column="42" selection-end-line="47" selection-end-column="42" />
-              <caret line="48" column="42" selection-start-line="48" selection-start-column="42" selection-end-line="48" selection-end-column="42" />
-              <caret line="49" column="42" selection-start-line="49" selection-start-column="42" selection-end-line="49" selection-end-column="42" />
-              <caret line="50" column="42" selection-start-line="50" selection-start-column="42" selection-end-line="50" selection-end-column="42" />
-              <caret line="51" column="42" selection-start-line="51" selection-start-column="42" selection-end-line="51" selection-end-column="42" />
+            <state relative-caret-position="266">
+              <caret line="49" column="83" selection-start-line="49" selection-start-column="83" selection-end-line="49" selection-end-column="83" />
+              <folding>
+                <element signature="n#style#0;n#a#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="link.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="link.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/link.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="95" column="103" selection-start-line="95" selection-start-column="103" selection-end-line="95" selection-end-column="103" />
+            <state relative-caret-position="195">
+              <caret line="97" lean-forward="true" selection-start-line="96" selection-start-column="24" selection-end-line="97" />
               <folding>
                 <element signature="n#style#0;n#a#0;n#li#0;n#ul#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#a#0;n#li#1;n#ul#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -97,6 +94,7 @@
                 <element signature="n#style#0;n#a#0;n#li#2;n#ul#2;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#a#0;n#li#3;n#ul#2;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#a#0;n#li#4;n#ul#2;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#li#4;n#ul#2;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -104,11 +102,13 @@
       </file>
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-386" />
+          </provider>
         </entry>
       </file>
-      <file leaf-file-name="bootstrap.min.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/bootstrap.min.js">
+      <file leaf-file-name="pradeepbihani.github.com.iml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pradeepbihani.github.com.iml">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
@@ -133,6 +133,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>mathJa</find>
+      <find>www</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -157,6 +158,7 @@
         <option value="$PROJECT_DIR$/css/simple-sidebar.css" />
         <option value="$PROJECT_DIR$/topics/Math/PaperSolution/Paper2016_Solution.html" />
         <option value="$PROJECT_DIR$/link.html" />
+        <option value="$PROJECT_DIR$/topics/Math/RealAnalysis.html" />
       </list>
     </option>
   </component>
@@ -260,8 +262,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/topics/Math/PaperSolution" />
       <recent name="$PROJECT_DIR$/topics/Math" />
+      <recent name="$PROJECT_DIR$/topics/Math/PaperSolution" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -334,6 +336,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="821" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -344,11 +347,11 @@
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info active="true" anchor="bottom" id="Version Control" visible="true" weight="0.39657632" />
-      <window_info anchor="bottom" id="Terminal" weight="0.32952926" />
+      <window_info anchor="bottom" id="Version Control" weight="0.39657632" />
+      <window_info anchor="bottom" id="Terminal" visible="true" weight="0.32952926" />
       <window_info id="Capture Tool" />
       <window_info id="Designer" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24964234" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24964234" />
       <window_info anchor="bottom" id="SonarLint" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="SonarQube" />
@@ -398,9 +401,6 @@
     <entry file="file://$PROJECT_DIR$/js/bootstrap.min.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/topics/Math/ComplexAnalysis.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
@@ -429,16 +429,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/topics/Math/NBHM.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="49" column="72" selection-start-line="49" selection-start-column="72" selection-end-line="49" selection-end-column="72" />
-          <folding>
-            <element signature="n#style#0;n#a#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/topics/Math/GroupTheory.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="148">
@@ -455,15 +445,33 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/topics/Math/PaperSolution/Paper2016_Solution.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
+        <state relative-caret-position="264">
           <caret line="68" column="22" selection-start-line="68" selection-start-column="22" selection-end-line="68" selection-end-column="22" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/topics/Math/NBHM.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="49" column="72" selection-start-line="49" selection-start-column="72" selection-end-line="49" selection-end-column="72" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-386" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pradeepbihani.github.com.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/link.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="95" column="103" selection-start-line="95" selection-start-column="103" selection-end-line="95" selection-end-column="103" />
+        <state relative-caret-position="195">
+          <caret line="97" lean-forward="true" selection-start-line="96" selection-start-column="24" selection-end-line="97" />
           <folding>
             <element signature="n#style#0;n#a#0;n#li#0;n#ul#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#a#0;n#li#1;n#ul#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -473,6 +481,17 @@
             <element signature="n#style#0;n#a#0;n#li#2;n#ul#2;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#a#0;n#li#3;n#ul#2;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#a#0;n#li#4;n#ul#2;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#li#4;n#ul#2;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/topics/Math/RealAnalysis.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="49" column="83" selection-start-line="49" selection-start-column="83" selection-end-line="49" selection-end-column="83" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
