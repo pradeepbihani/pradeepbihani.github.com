@@ -23,6 +23,7 @@
          MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
 
 
+
     </script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -60,8 +61,31 @@
 
                 </ul>
 
-                <h3>Ring Homorphism</h3>
+                <h3>Nilpotent Number</h3>
                 <p>
+                    Characterizations of the set of positive integers $n$ such that every group of order $n$ is (i)
+                    cyclic, (ii) abelian, or (iii) nilpotent.
+                    <br/>
+                    Say that a positive integer $n > 1$ is a **nilpotent number** if $n = p_1^{a_1} \cdots p_r^{a_r}$
+                    (here the $p_i$'s are distinct prime numbers) and for all $1 \leq i,j \leq r$ and $1 \leq k \leq
+                    a_i$, $p_i^k \not \equiv 1 \pmod{p_j}$. Also, let us say that $1$ is a nilpotent number.
+                    <br/>
+                    (So, for instance, any prime power is a nilpotent number. A product of two distinct primes $pq$ is a
+                    nilpotent number unless $p \equiv 1 \pmod q$ or $q \equiv 1 \pmod p$.)
+                    <br/>
+                    Then, for $n \in \mathbb{Z}^+$:
+                    <br/>
+                <ul>
+                    <li>(Pazderski, 1959) Every group of order $n$ is nilpotent iff $n$ is a nilpotent number.</li>
+                    <li>(Dickson, 1905) Every group of order $n$ is abelian iff $n$ is a cubefree nilpotent number.</li>
+                    <li>(Szele, 1947) Every group of order $n$ is cyclic iff $n$ is a squarefree nilpotent number. and n
+                        is cyclic iff <b>$gcd(n,\phi(n))=1$</b></li>
+                </ul>
+                For example, if $n = pq$ is a product of distinct primes, then $n$ is squarefree, so every group of
+                order $n$ is nilpotent iff every group of order $n$ is abelian iff every group of order $n$ is cyclic
+                iff $p \not \equiv 1 \pmod q$ and $q \not \equiv 1 \pmod p$. In particular, every group of order $15$ is
+                cyclic. <a href="http://math.uga.edu/~pete/nilpotentnumbers.pdf"
+                           style="font-size:15px">Paper</a></li>
 
                 </p>
 
@@ -173,6 +197,8 @@
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
     });
+
+
 
 
 
