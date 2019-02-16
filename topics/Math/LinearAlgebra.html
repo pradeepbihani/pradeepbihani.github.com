@@ -1,0 +1,105 @@
+<html lang="en"><head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>PradeepBihani</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../../css/simple-sidebar.css" rel="stylesheet">
+
+    <!-- latex -->
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+
+
+
+<!-- /#sidebar-wrapper -->
+
+<!-- Page Content -->
+<div id="page-content-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <h1>Linear Algebra</h1>
+
+
+                <ul>
+                    <li>
+                        <a href="https://sites.math.northwestern.edu/~scanez/courses/334/notes/jordan-form.pdf"
+                           style="font-size:18px">Jordan Form</a></li>
+                </ul>
+
+                <h3>RelationShip between Jordan Block and Eigen Values</h3>
+                <p>
+                    Characteristic Equation --> $ \lambda  $  of the set of positive integers $n$ such that every group of order $n$ is (i)
+                    cyclic, (ii) abelian, or (iii) nilpotent.
+                    <br/>
+                    Say that a positive integer $n > 1$ is a **nilpotent number** if $n = p_1^{a_1} \cdots p_r^{a_r}$
+                    (here the $p_i$'s are distinct prime numbers) and for all $1 \leq i,j \leq r$ and $1 \leq k \leq
+                    a_i$, $p_i^k \not \equiv 1 \pmod{p_j}$. Also, let us say that $1$ is a nilpotent number.
+                    <br/>
+                    (So, for instance, any prime power is a nilpotent number. A product of two distinct primes $pq$ is a
+                    nilpotent number unless $p \equiv 1 \pmod q$ or $q \equiv 1 \pmod p$.)
+                    <br/>
+                    Then, for $n \in \mathbb{Z}^+$:
+                    <br/>
+                <ul>
+                    <li>(Pazderski, 1959) Every group of order $n$ is nilpotent iff $n$ is a nilpotent number.</li>
+                    <li>(Dickson, 1905) Every group of order $n$ is abelian iff $n$ is a cubefree nilpotent number.</li>
+                    <li>(Szele, 1947) Every group of order $n$ is cyclic iff $n$ is a squarefree nilpotent number. and n
+                        is cyclic iff <b>$gcd(n,\phi(n))=1$</b></li>
+                </ul>
+                For example, if $n = pq$ is a product of distinct primes, then $n$ is squarefree, so every group of
+                order $n$ is nilpotent iff every group of order $n$ is abelian iff every group of order $n$ is cyclic
+                iff $p \not \equiv 1 \pmod q$ and $q \not \equiv 1 \pmod p$. In particular, every group of order $15$ is
+                cyclic. <a href="http://math.uga.edu/~pete/nilpotentnumbers.pdf"
+                           style="font-size:15px">Paper</a></li>
+
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /#page-content-wrapper -->
+
+<!-- /#wrapper -->
+
+<!-- jQuery Version 1.11.0 -->
+<script src="js/jquery-1.11.0.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+
+<!-- Menu Toggle Script -->
+<script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+
+
+
+
+</body></html>

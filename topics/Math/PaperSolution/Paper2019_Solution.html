@@ -1,0 +1,201 @@
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>PradeepBihani</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../../../css/simple-sidebar.css" rel="stylesheet">
+
+    <!-- latex -->
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    <script type="text/x-mathjax-config">
+         MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+
+
+    </script>
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+
+<!-- /#sidebar-wrapper -->
+
+<!-- Page Content -->
+<div id="page-content-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Paper 2019 Solution</h1>
+                <div class="qnaset">
+                    <div class="highlightQuestion">
+                        <h5 class="question"><label>1.1</label>
+                            Which of the following statements are true? <br/>
+                            <ol type="a">
+                                <li> If $G$ is a finite group, then there exists $n \in N$ such that $G$ is isomorphic
+                                    to a subgroup of $GL_{n}(R)$.
+                                </li>
+                                <li> There exists an infinite group $G$ such that every element, other than the
+                                    identity element, is of order 2.
+                                </li>
+                                <li>
+                                    The group $GL_{2}(R)$ contains a cyclic subgroup of order 5.
+                                </li>
+                            </ol>
+                        </h5>
+                    </div>
+
+                    <div class="highlightAnswer">
+                        <p class="question"><label>Answer : A,B,C</label><br/>
+                            <b>Option A:</b>
+                            <br/>
+                            Let $G$ be a finite groupe and $n = \text{Card}(G)$.
+                            <br/>
+                            Caley's theorem states that there exists $\phi \in \text{Hom}(G, S_n)$ which is injective,
+                            which means that $G$ is isomorphic to a subgroup of $S_n$.
+                            <br/>
+                            We will make $S_n$ "act" on the vector space $\mathbb{R}^n$. We will define for every
+                            $\sigma \in S_n$ the matrix :
+                            $$M_{\sigma} = (\delta_{\sigma(i), j})$$
+                            <br/>
+                            where $\delta$ is the Kronecker delta defined by : $$\delta_{a, b} = \begin{cases}
+                            1 \text{ if } a = b \\
+                            0 \text{ otherwise}
+                            \end{cases}$$
+                            <br/>
+                            These $M_{\sigma}$ are elements of $\text{GL}_n(\mathbb{R})$ because $\forall \sigma \in
+                            S_n, \ M_{\sigma} \times M_{\sigma^{-1}} = M_{\sigma^{-1}} \times M_{\sigma} = I_n$.
+                            <br/>
+                            Let $\phi' : \sigma \mapsto M_{\sigma}$. $\phi' \in \text{Hom}(S_n,
+                            \text{GL}_n(\mathbb{R}))$ and is injective, so $S_n$ is isomorphic to a subgroup of
+                            $\text{GL}_n(\mathbb{R})$.
+                            <br/>
+                            then, let $\theta = \phi' \circ \phi$. $\phi$ and $\phi'$ are injective morphisms, so
+                            $\theta$ is an injective morphism from $G$ to $\text{GL}_n(\mathbb{R})$. That means $G$ is
+                            isomorphic to a subgroup of $\text{GL}_n(\mathbb{R})$, which is, in our case,
+                            $\text{Im}(\theta)$.
+                        </p>
+                        <p class="question">
+                            <b>Option B:</b>
+                            <br/> 2Z mod 2 under addition is a Group of infinite order where each element is of order 2
+                            other than identity element
+                        </p>
+                        <p class="question">
+                            <b>Option C:</b><br/>
+                            We need a $A \in GL_{2}(R)$ such that $A_{5} = I$. This is possible if we take rotation
+                            matrix as example
+                            <br/>
+                            $$A = \begin{pmatrix}\cos 2\pi/n &-\sin2\pi/n \\ \sin2\pi/n & \cos 2\pi/n\end{pmatrix}
+                            \mapsto e^{\frac{2\pi i}{n}}$$
+                        </p>
+                    </div>
+                </div>
+
+                <div class="qnaset">
+                    <div class="highlightQuestion">
+                        <h5 class="question"><label>1.2</label>
+                            Let $p$ be a prime number. Let $n \in N$, $n \gt 1$. What is the order of a
+                            p-Sylow subgroup of $GL_{n}(F_{p})$? <br/>
+
+                        </h5>
+                    </div>
+
+                    <div class="highlightAnswer">
+                        <p class="question"><label>Answer : $p^{\frac{n(n-1)}{2}}$</label><br/>
+                            For any $ A \in GL_{n}(F_{p}) \text{ we have} |A| \neq 0$ means all colums are linearly
+                            independent<br/>
+                            Let how many ways we can make first column = $p^{n} - 1$ ( subtract 1 if all are identity
+                            element)<br/>
+                            No of ways for two linearly independent column = $(P^{n} - 1) - (p - 1) = p^{n} - p $(Linear
+                            combination of two column can be generated by p - 1 element)<br/>
+                            No of ways for thrid linearly independent column = $(P^{n} - 1) - (p^{2} - 1) = p^{n} -
+                            p^{2} $(Linear combination of three column can be generated by $p^{2} - 1$ element)<br/>
+                            and so on <br/>
+
+                            $$
+                            \begin{equation}
+                            \begin{aligned}
+                            \text{Order of the group}
+                            & = (p^{n} - p)(p^{n} - p^{2}) \cdots (p^{n} - p^{n-1}) \\
+                            & = p^{1+2+ ... +n-1} (p^{n} - 1)(p^{n-1} -1) \\
+                            & = p^{\frac{n(n-1)}{2}} (p^{n} - 1)(p^{n-1} -1) \cdots (p^{1} - 1)
+                            \end{aligned}
+                            \end{equation}
+                            $$
+                        </p>
+
+                    </div>
+                </div>
+
+                <div class="qnaset">
+                    <div class="highlightQuestion">
+                        <h5 class="question"><label>1.3</label>
+                            Give an example of a 5-Sylow subgroup of $GL_{3}(F_{5})$ ? <br/>
+
+                        </h5>
+                    </div>
+
+                    <div class="highlightAnswer">
+                        <p class="question"><label>Answer : $p^{\frac{n(n-1)}{2}}$</label><br/>
+                            $|GL_{n}(F_{p})| \neq 0$ means all colums are linearly independent<br/>
+                            Let how many ways we can make first column = $p^{n} - 1$ ( subtract 1 if all are identity
+                            element)<br/>
+                            no of ways for two linearly independent column = $(P^{n} - 1) - (p - 1) = p^{n} - p $(Linear
+                            combination of two column can be generated by p - 1 element)<br/>
+                            no of ways for thrid linearly independent column = $(P^{n} - 1) - (p^{2} - 1) = p^{n} -
+                            p^{2} $(Linear combination of three column can be generated by $p^{2} - 1$ element)<br/>
+                            and so on <br/>
+                            Order of p-Shylow group =$ (p^{n} - p)(p^{n} - p^{2}) \cdots (p^{n} - p^{n-1}) = p^{1+2+ ...
+                            +n-1} (p^{n} - 1)(p^{n} -1) \cdots (p^{n} - 1) = p^{\frac{n(n-1)}{2}} ...$
+
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /#page-content-wrapper -->
+
+<!-- /#wrapper -->
+
+<!-- jQuery Version 1.11.0 -->
+<script src="js/jquery-1.11.0.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+
+<!-- Menu Toggle Script -->
+<script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+
+
+
+
+</script>
+
+
+</body>
+</html>
